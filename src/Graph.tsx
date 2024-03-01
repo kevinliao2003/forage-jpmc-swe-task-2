@@ -47,18 +47,18 @@ class Graph extends Component<IProps, {}> {
     if (this.table) {
       // Load the `table` in the `<perspective-viewer>` DOM reference.
       elem.load(this.table);
-    }
 
-    // Builds the table.
-    elem.setAttribute('view', 'y_line'); // y_line: continuous line graph
-    elem.setAttribute('column-pivots', '["stock"]'); // distinguish between stock
-    elem.setAttribute('row-pivots', '["timestamp"]'); // x-axis is timestamp
-    elem.setAttribute('columns', '["top_ask_price"]'); // y-axis is price
-    elem.setAttribute('aggregates', // handles duplicated data
-      `{"stock":"distinct count",
-        "top_ask_price":"avg",
-        "top_bid_price":"avg",
-        "timestamp":"distinct count"}`);
+      // Builds the table.
+      elem.setAttribute('view', 'y_line'); // y_line: continuous line graph
+      elem.setAttribute('column-pivots', '["stock"]'); // distinguish between stock
+      elem.setAttribute('row-pivots', '["timestamp"]'); // x-axis is timestamp
+      elem.setAttribute('columns', '["top_ask_price"]'); // y-axis is price
+      elem.setAttribute('aggregates', // handles duplicated data
+        `{"stock":"distinct count",
+          "top_ask_price":"avg",
+          "top_bid_price":"avg",
+          "timestamp":"distinct count"}`);
+    }
   }
 
   componentDidUpdate() {
